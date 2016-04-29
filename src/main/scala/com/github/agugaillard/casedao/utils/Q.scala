@@ -1,7 +1,7 @@
-package com.github.agugaillard.utils
+package com.github.agugaillard.casedao.utils
 
-import com.github.agugaillard.lite.{CLite, Lite}
-import com.github.agugaillard.model.Entity
+import com.github.agugaillard.casedao.lite.{LFormat, Lite}
+import com.github.agugaillard.casedao.model.Entity
 import reactivemongo.bson.BSONDocument
 import reactivemongo.bson.BSONDocumentWriter
 import reactivemongo.bson.BSONObjectID
@@ -21,7 +21,7 @@ object Q {
 
   def setOnInsert[A](o: A)(implicit writer: BSONDocumentWriter[A]) = BSONDocument("$setOnInsert" -> o)
 
-  def addToSet[A <: Entity](field: String, doc: Lite[A])(implicit clite: CLite[A]) = BSONDocument("$addToSet" -> BSONDocument(field -> doc))
+  def addToSet[A <: Entity](field: String, doc: Lite[A])(implicit clite: LFormat[A]) = BSONDocument("$addToSet" -> BSONDocument(field -> doc))
 
   def push[A](field: String, value: A)(implicit w: BSONDocumentWriter[A]) = BSONDocument("$push" -> BSONDocument(field -> value))
 

@@ -1,4 +1,4 @@
-package com.github.agugaillard.model
+package com.github.agugaillard.casedao.model
 
 import reactivemongo.bson.BSONObjectID
 

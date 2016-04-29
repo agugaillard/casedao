@@ -1,4 +1,4 @@
-package com.github.agugaillard.dao.status
+package com.github.agugaillard.casedao.dao.status
 
 case class Status(code: Int, msg: String = "")
 
